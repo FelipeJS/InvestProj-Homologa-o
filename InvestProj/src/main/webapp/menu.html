@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>InvestProj</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-animate.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/template.css" />
+<link rel="shortcut icon" href="img/dolar.ico" />
+</head>
+<body ng-app="">
+	<div class="container">
+
+		<div class="row" id="pwd-container">
+			<div class="col-md-2"></div>
+
+			<div class="col-md-8">
+				<section class="login-form">
+					<form method="post" action="#" role="login" name="loginForm">
+						<img src="img/InvestProj Logo.png" class="img-responsive" alt="" />
+						<h1>Cadastro</h1>
+						
+						<input ng-model="nome" type="text" name="nome"
+							placeholder="Nome Completo" required class="form-control input-lg"  
+							minlength="6" maxlength="60" /> 
+						
+						<input ng-model="email" type="email" name="email"
+							placeholder="E-mail" required class="form-control input-lg" /> 
+							
+						<input ng-model="data" type="date" name="data" 
+							placeholder="Data de Nascimento" required class="form-control input-lg" />
+							
+						<input ng-model="senha" type="password" name="senha"
+							placeholder="Senha" required class="form-control input-lg"  
+							ng-minlength="8" maxlength="16" />
+
+						<div>
+							<span ng-show="loginForm.nome.$dirty">
+								<p><span ng-show="loginForm.nome.$error.required">Digite seu nome</span></p>
+								<p><span ng-show="loginForm.nome.$error.minlength">Nome inválido</span></p>
+							</span>
+							<span ng-show="loginForm.email.$invalid && loginForm.email.$dirty">
+								<p><span ng-show="loginForm.email.$error.required">Digite seu e-mail</span></p>
+								<p><span ng-show="loginForm.email.$error.email">E-mail inválido</span></p>
+							</span>
+							<span ng-show="loginForm.data.$invalid && loginForm.data.$dirty">
+								<p><span ng-show="loginForm.data.$error.date">Digite sua data de nascimento</span></p>
+							</span>
+							<span ng-show="loginForm.senha.$dirty">
+								<p><span ng-show="loginForm.senha.$error.required">Digite sua senha</span></p>
+								<p><span ng-show="loginForm.senha.$error.minlength">A senha deve conter no minimo 8 caracteres</span></p>
+							</span>
+						</div>
+
+						<button ng-disabled="loginForm.$invalid" type="submit" 
+						class="btn btn-lg btn-primary btn-block">Cadastrar</button>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

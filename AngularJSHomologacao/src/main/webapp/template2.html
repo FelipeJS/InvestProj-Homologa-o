@@ -1,0 +1,35 @@
+<p>Nome:<br /> 
+				<input ng-model="nome" type="text" name="nome" required="required" ng-minlength="3" maxlength="60"/> 
+				<span style="color:red" ng-show="dLogin.nome.$dirty">
+  					<span ng-show="dLogin.nome.$error.required">Nome Obrigatório</span>
+  					<span ng-show="dLogin.nome.$error.minlength">Nome Inválido</span>
+  				</span>
+			</p>
+			
+			<p>E-mail:<br /> 
+				<input ng-model="email" type="email" name="email" required="required" placeholder="email@email.com"/> 
+				<span style="color:red" ng-show="dLogin.email.$invalid && dLogin.email.$dirty">
+  					<span ng-show="dLogin.email.$error.email">E-mail Inválido</span>
+  					<span ng-show="dLogin.email.$error.required">E-mail Obrigatório</span>
+  				</span>
+			</p>
+			
+			<p>Data de Nascimento:<br /> 
+				<input ng-model="nascimento" type="date" name="data" required="required"/>
+				<span style="color:red" ng-show="dLogin.data.$dirty">
+  					<span ng-show="dLogin.data.$error.required">Data Inválida</span>
+  				</span>
+			</p>
+			
+			<p>Senha:<br />
+				<input ng-model="senha" type="password" name="senha" required="required" ng-minlength="8" maxlength="15" />
+				<span style="color:red" ng-show="dLogin.senha.$dirty">
+  					<span ng-show="dLogin.senha.$error.required">Digite a Senha</span>
+  					<span ng-show="dLogin.senha.$error.minlength">Minimo 8 Caracteres</span>
+  				</span>
+			</p>
+			
+						
+			<p>
+ 				<input ng-disabled="dLogin.$invalid" ng-click="validar()" type="submit" value="Cadastrar"/>
+			</p>

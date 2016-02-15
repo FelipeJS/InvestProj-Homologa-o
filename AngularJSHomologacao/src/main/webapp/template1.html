@@ -1,0 +1,40 @@
+<div class="container">
+
+		<div class="row" id="pwd-container">
+			<div class="col-md-2"></div>
+
+			<div class="col-md-8">
+				<section class="login-form">
+					<form method="post" action="#" role="login" name="loginForm">
+						<img src="" class="img-responsive" alt="" /> 
+						
+						<input ng-model="email" type="email" name="email"
+							placeholder="E-mail" required class="form-control input-lg" />
+
+						<input ng-model="senha" type="password" name="senha"
+							class="form-control input-lg" placeholder="Senha" required
+							ng-minlength="8" maxlength="16" />
+
+						<div>
+							<span style="color: red" ng-show="loginForm.email.$invalid && loginForm.email.$dirty">
+								<p><span ng-show="loginForm.email.$error.email">E-mail inválido</span></p>
+								<p><span ng-show="loginForm.email.$error.required">Digite seu e-mail</span></p>
+							</span> 
+							
+							<span style="color: red" ng-show="loginForm.senha.$dirty">
+								<p><span ng-show="loginForm.senha.$error.required">Digite sua senha</span></p>
+								<p><span ng-show="loginForm.senha.$error.minlength">A senha deve conter no minimo 8 caracteres</span></p>
+							</span>
+						</div>
+
+						<button ng-disabled="loginForm.$invalid" type="submit"
+							class="btn btn-lg btn-primary btn-block">Entrar</button>
+
+						<div>
+							<a href="#">Esqueci Minha Senha</a> <p><a href="#">Quero me Cadastrar</a></p>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="mvcApp">
+<head>
+<meta charset="UTF-8">
+<title>MVC</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.4/i18n/angular-locale_pt-br.js"></script>
+	
+</head>
+<body ng-controller="MyController">
+	<div>
+		<h1>Estados e Capitais</h1>
+		<p>Data: {{data | date}}</p>
+		
+		<p>Filtrar: <input type="text" ng-model="filtro"/></p>
+		
+		<ul>
+			<li ng-repeat="state in states | orderBy:'name' | filter:filtro">
+				{{state.name | uppercase}} - {{state.capital | lowercase}} - {{state.renda | currency}}
+			</li>
+		</ul>
+
+		<form ng-submit="addState()">
+			<input type="text" ng-model="estado" placeholder="Estado"/> 
+			<input type="text" ng-model="capital" placeholder="Capital"/>
+			<input type="text" ng-model="renda" placeholder="Capital"/>  
+			<input type="submit" value="incluir"/>
+		</form>
+
+		<script>
+			var mvcApp = angular.module('mvcApp', []);
+
+			mvcApp.controller('MyController', function MyController($scope) {
+				
+				$scope.data = new Date();
+				$scope.states = [
+					{name:'Minas Gerais', capital: 'Belo Horizonte', renda: '12000'},
+					{name:'São Paulo', capital: 'São Paulo', renda: '25000'}
+				];
+				
+				$scope.addState = function(){
+					$scope.states.push({name : $scope.estado, capital: $scope.capital, renda: $scope.renda})
+					$scope.estado = '';
+					$scope.capital = '';
+					$scope.renda = '';
+				}
+			})
+		</script>
+
+	</div>
+</body>
+</html>
